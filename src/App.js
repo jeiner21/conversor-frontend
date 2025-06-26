@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const cargarMonedas = async () => {
-      const res = await fetch('http://localhost:8080/convert/money');
+      const res = await fetch('https://conversor-backend-slpd.onrender.com/convert/money');
       const data = await res.json();
       setMoney(data);
     };
@@ -24,7 +24,7 @@ function App() {
     e.preventDefault();
     setError('');
     try {
-      const res = await fetch('http://localhost:8080/convert', {
+      const res = await fetch('https://conversor-backend-slpd.onrender.com/convert', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
