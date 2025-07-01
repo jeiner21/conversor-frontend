@@ -16,6 +16,14 @@ function App() {
       setMoney(data);
     };
     cargarMonedas();
+
+     const interval = setInterval(() => {
+      fetch('https://conversor-backend-slpd.onrender.com/ping')
+        .then(res => console.log('Ping exitoso:', res.status))
+        .catch(err => console.error('Error al hacer ping:', err));
+    }, 600000); // 600000 ms = 10 min
+
+    return () => clearInterval(interval);
   }, []);
 
   const opciones = money.map(mon => ({ value: mon, label: mon }));
