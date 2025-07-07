@@ -12,7 +12,6 @@ Aplicación web desarrollada en React que permite convertir monedas en tiempo re
 - react-select
 - Fetch API
 - CSS básico
-- Despliegue en Render
 
 ## 🌍 Funcionalidad
 - Selección de moneda origen y destino

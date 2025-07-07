@@ -11,19 +11,11 @@ function App() {
 
   useEffect(() => {
     const cargarMonedas = async () => {
-      const res = await fetch('https://conversor-backend-slpd.onrender.com/convert/money');
+      const res = await fetch('http://localhost:8080/convert/money');
       const data = await res.json();
       setMoney(data);
     };
     cargarMonedas();
-
-     const interval = setInterval(() => {
-      fetch('https://conversor-backend-slpd.onrender.com/ping')
-        .then(res => console.log('Ping exitoso:', res.status))
-        .catch(err => console.error('Error al hacer ping:', err));
-    }, 40000);
-
-    return () => clearInterval(interval);
   }, []);
 
   const opciones = money.map(mon => ({ value: mon, label: mon }));
@@ -32,7 +24,7 @@ function App() {
     e.preventDefault();
     setError('');
     try {
-      const res = await fetch('https://conversor-backend-slpd.onrender.com/convert', {
+      const res = await fetch('http://localhost:8080/convert', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
